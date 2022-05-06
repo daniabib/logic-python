@@ -110,6 +110,13 @@ class Formula:
             The standard string representation of the current formula.
         """
         # Task 1.1
+        if is_variable(self.root) or is_constant(self.root):
+            return self.root
+        elif is_unary(str(self.root)):
+            return self.root + str(self.first) 
+        else:
+            return "(" + str(self.first) + self.root + str(self.second) + ")"
+
 
     def __eq__(self, other: object) -> bool:
         """Compares the current formula with the given one.
